@@ -1,0 +1,1292 @@
+{
+  "tokensmith": {
+    "fileFormatVersion": 6,
+    "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+    "name": "tokensmith",
+    "friends": [],
+    "structs": {
+      "ExercisePrice": {
+        "abilities": {
+          "abilities": [
+            "Copy",
+            "Drop",
+            "Store"
+          ]
+        },
+        "typeParameters": [],
+        "fields": [
+          {
+            "name": "numerator",
+            "type": "U64"
+          },
+          {
+            "name": "denominator",
+            "type": "U64"
+          }
+        ]
+      },
+      "Marketplace": {
+        "abilities": {
+          "abilities": [
+            "Key"
+          ]
+        },
+        "typeParameters": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": {
+              "Struct": {
+                "address": "0x2",
+                "module": "object",
+                "name": "UID",
+                "typeArguments": []
+              }
+            }
+          }
+        ]
+      },
+      "OptionVault": {
+        "abilities": {
+          "abilities": [
+            "Store",
+            "Key"
+          ]
+        },
+        "typeParameters": [
+          {
+            "constraints": {
+              "abilities": []
+            },
+            "isPhantom": true
+          },
+          {
+            "constraints": {
+              "abilities": []
+            },
+            "isPhantom": true
+          },
+          {
+            "constraints": {
+              "abilities": []
+            },
+            "isPhantom": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "id",
+            "type": {
+              "Struct": {
+                "address": "0x2",
+                "module": "object",
+                "name": "UID",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "name": "option_type",
+            "type": "U8"
+          },
+          {
+            "name": "asset_balance",
+            "type": {
+              "Struct": {
+                "address": "0x2",
+                "module": "balance",
+                "name": "Balance",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "usdc_balance",
+            "type": {
+              "Struct": {
+                "address": "0x2",
+                "module": "balance",
+                "name": "Balance",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "exercise_price",
+            "type": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "ExercisePrice",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "name": "expire_date",
+            "type": "U64"
+          },
+          {
+            "name": "owner",
+            "type": "Address"
+          },
+          {
+            "name": "treasury_cap",
+            "type": {
+              "Struct": {
+                "address": "0x2",
+                "module": "coin",
+                "name": "TreasuryCap",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "asset_decimals",
+            "type": "U8"
+          },
+          {
+            "name": "usdc_decimals",
+            "type": "U8"
+          }
+        ]
+      },
+      "VaultOwner": {
+        "abilities": {
+          "abilities": [
+            "Key"
+          ]
+        },
+        "typeParameters": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": {
+              "Struct": {
+                "address": "0x2",
+                "module": "object",
+                "name": "UID",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "name": "option_coin_type",
+            "type": {
+              "Struct": {
+                "address": "0x1",
+                "module": "type_name",
+                "name": "TypeName",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "name": "marketplace",
+            "type": "Address"
+          }
+        ]
+      }
+    },
+    "exposedFunctions": {
+      "check_exercise": {
+        "visibility": "Public",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "OptionVault",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  },
+                  {
+                    "TypeParameter": 1
+                  },
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "clock",
+                "name": "Clock",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": []
+      },
+      "check_expire": {
+        "visibility": "Public",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "OptionVault",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  },
+                  {
+                    "TypeParameter": 1
+                  },
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "clock",
+                "name": "Clock",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": []
+      },
+      "check_withdrawal_period": {
+        "visibility": "Public",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "OptionVault",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  },
+                  {
+                    "TypeParameter": 1
+                  },
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "clock",
+                "name": "Clock",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": []
+      },
+      "claim_proceeds": {
+        "visibility": "Public",
+        "isEntry": true,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "Marketplace",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "VaultOwner",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "clock",
+                "name": "Clock",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "tx_context",
+                "name": "TxContext",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": []
+      },
+      "exercise_call": {
+        "visibility": "Public",
+        "isEntry": true,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "Marketplace",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "clock",
+                "name": "Clock",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Struct": {
+              "address": "0x2",
+              "module": "coin",
+              "name": "Coin",
+              "typeArguments": [
+                {
+                  "TypeParameter": 2
+                }
+              ]
+            }
+          },
+          {
+            "Struct": {
+              "address": "0x2",
+              "module": "coin",
+              "name": "Coin",
+              "typeArguments": [
+                {
+                  "TypeParameter": 1
+                }
+              ]
+            }
+          },
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "tx_context",
+                "name": "TxContext",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": []
+      },
+      "exercise_put": {
+        "visibility": "Public",
+        "isEntry": true,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "Marketplace",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "clock",
+                "name": "Clock",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Struct": {
+              "address": "0x2",
+              "module": "coin",
+              "name": "Coin",
+              "typeArguments": [
+                {
+                  "TypeParameter": 2
+                }
+              ]
+            }
+          },
+          {
+            "Struct": {
+              "address": "0x2",
+              "module": "coin",
+              "name": "Coin",
+              "typeArguments": [
+                {
+                  "TypeParameter": 0
+                }
+              ]
+            }
+          },
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "tx_context",
+                "name": "TxContext",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": []
+      },
+      "get_asset_balance": {
+        "visibility": "Public",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "OptionVault",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  },
+                  {
+                    "TypeParameter": 1
+                  },
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "return": [
+          "U64"
+        ]
+      },
+      "get_exercise_price": {
+        "visibility": "Public",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "OptionVault",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  },
+                  {
+                    "TypeParameter": 1
+                  },
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "return": [
+          {
+            "Struct": {
+              "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+              "module": "tokensmith",
+              "name": "ExercisePrice",
+              "typeArguments": []
+            }
+          }
+        ]
+      },
+      "get_expire_date": {
+        "visibility": "Public",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "OptionVault",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  },
+                  {
+                    "TypeParameter": 1
+                  },
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "return": [
+          "U64"
+        ]
+      },
+      "get_option_type": {
+        "visibility": "Public",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "OptionVault",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  },
+                  {
+                    "TypeParameter": 1
+                  },
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "return": [
+          "U8"
+        ]
+      },
+      "get_owner": {
+        "visibility": "Public",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "OptionVault",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  },
+                  {
+                    "TypeParameter": 1
+                  },
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "return": [
+          "Address"
+        ]
+      },
+      "get_usdc_balance": {
+        "visibility": "Public",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "OptionVault",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  },
+                  {
+                    "TypeParameter": 1
+                  },
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "return": [
+          "U64"
+        ]
+      },
+      "get_vault_from_marketplace_with_name": {
+        "visibility": "Friend",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "Marketplace",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": [
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "OptionVault",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  },
+                  {
+                    "TypeParameter": 1
+                  },
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "get_vault_from_marketplace_with_owner": {
+        "visibility": "Friend",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "Marketplace",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "VaultOwner",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": [
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "OptionVault",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  },
+                  {
+                    "TypeParameter": 1
+                  },
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "init_option_vault": {
+        "visibility": "Public",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "clock",
+                "name": "Clock",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Struct": {
+              "address": "0x2",
+              "module": "coin",
+              "name": "TreasuryCap",
+              "typeArguments": [
+                {
+                  "TypeParameter": 2
+                }
+              ]
+            }
+          },
+          "U8",
+          "U64",
+          "U64",
+          "U64",
+          "U8",
+          "U8",
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "Marketplace",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "tx_context",
+                "name": "TxContext",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": []
+      },
+      "is_withdrawal_period_active": {
+        "visibility": "Public",
+        "isEntry": false,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "OptionVault",
+                "typeArguments": [
+                  {
+                    "TypeParameter": 0
+                  },
+                  {
+                    "TypeParameter": 1
+                  },
+                  {
+                    "TypeParameter": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "clock",
+                "name": "Clock",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": [
+          "Bool"
+        ]
+      },
+      "withdraw_remaining": {
+        "visibility": "Public",
+        "isEntry": true,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "Marketplace",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "VaultOwner",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "clock",
+                "name": "Clock",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "tx_context",
+                "name": "TxContext",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": []
+      },
+      "withdraw_tokens": {
+        "visibility": "Public",
+        "isEntry": true,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "Marketplace",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "VaultOwner",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "clock",
+                "name": "Clock",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Struct": {
+              "address": "0x2",
+              "module": "coin",
+              "name": "Coin",
+              "typeArguments": [
+                {
+                  "TypeParameter": 2
+                }
+              ]
+            }
+          },
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "tx_context",
+                "name": "TxContext",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": []
+      },
+      "write_covered_call": {
+        "visibility": "Public",
+        "isEntry": true,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "Marketplace",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "VaultOwner",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "clock",
+                "name": "Clock",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Struct": {
+              "address": "0x2",
+              "module": "coin",
+              "name": "Coin",
+              "typeArguments": [
+                {
+                  "TypeParameter": 0
+                }
+              ]
+            }
+          },
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "tx_context",
+                "name": "TxContext",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": []
+      },
+      "write_covered_put": {
+        "visibility": "Public",
+        "isEntry": true,
+        "typeParameters": [
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          },
+          {
+            "abilities": []
+          }
+        ],
+        "parameters": [
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "Marketplace",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0xbfa6bd48a5dac421fc20390d3909ce7a8ddce08d0a020cb907e390f33319c7b0",
+                "module": "tokensmith",
+                "name": "VaultOwner",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Reference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "clock",
+                "name": "Clock",
+                "typeArguments": []
+              }
+            }
+          },
+          {
+            "Struct": {
+              "address": "0x2",
+              "module": "coin",
+              "name": "Coin",
+              "typeArguments": [
+                {
+                  "TypeParameter": 1
+                }
+              ]
+            }
+          },
+          "U64",
+          {
+            "MutableReference": {
+              "Struct": {
+                "address": "0x2",
+                "module": "tx_context",
+                "name": "TxContext",
+                "typeArguments": []
+              }
+            }
+          }
+        ],
+        "return": []
+      }
+    }
+  }
+}

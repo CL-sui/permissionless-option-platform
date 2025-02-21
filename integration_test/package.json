@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@typemove/sui": "^1.9.0"
+  }
+}
