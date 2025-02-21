@@ -48,7 +48,7 @@ module tokensmith::tokensmith;
     /// Stores the collateral, exercise funds, and manages option lifecycle
     public struct OptionVault<phantom Asset, phantom USDC, phantom OPTION_COIN> has key, store {
     id: UID,
-    option_type: u8,                       // 0 for call, 1 for put
+    option_type: u8,                       
     asset_balance: Balance<Asset>,         // For calls: locked assets, For puts: received assets
     usdc_balance: Balance<USDC>,          // For calls: exercise pool, For puts: collateral
     exercise_price: ExercisePrice,         // Price in USDC per unit of asset
