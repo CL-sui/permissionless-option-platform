@@ -48,9 +48,3 @@ The Permissionless Option Platform reimagines on-chain options trading by:
 - Better price stability
 - Enhanced community engagement
 - Reduced market manipulation
-
-
-
-
-## Team
-- **Chenjie** - *DEFI PM & Smart Contract Developer*
